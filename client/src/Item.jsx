@@ -5,12 +5,11 @@ import axios from 'axios';
 function Item() {
     const[item,setItem]= useState([{
          Id:32, name: "Jalebi",image:"xyz",category:"mains",label:"Sweet",price:10.99,
-         description: "A indian sweet dish"
+         description: "A indian sweet dish"}])  
 
-    }])
 
     useEffect(() => {
-        axios.get('http://localhost:3001')
+        axios.get('http://localhost:5000')
         .then(result => setItem(result.data))
         .catch(err=> console.log(err))
 
@@ -35,7 +34,7 @@ function Item() {
                         {
                             item.map((prices) =>  {
                                return <tr>
-                                    <td>{prices.Id}</td>
+                                    <td>{prices.id}</td>
                                     <td>{prices.name}</td>
                                     <td>{prices.image}</td>
                                     <td>{prices.label}</td>
@@ -43,7 +42,6 @@ function Item() {
                                     <td>{prices.description}</td>
                                     <td>
                                         <Link to={'/update/${prices._id} '}className ='btn btn-success'>Update</Link>
-                                    <button className ='btn btn-danger'> Delete</button>
                                     </td>
                                 </tr>
                             })

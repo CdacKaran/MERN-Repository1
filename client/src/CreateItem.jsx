@@ -1,22 +1,22 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import {Link} from "react-router-dom";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 
 
 function CreateItem() {
-    const[Id,setId] = useState()
-    const[Name,setName] = useState()
-    const[Image,setImage] = useState()
-    const[Category,setCategory] = useState()
-    const[Label,setLabel] = useState()
-    const[Price,setPrice] = useState()
-    const[Description,setDescription] = useState()
+    const[id,setId] = useState()
+    const[name,setName] = useState()
+    const[image,setImage] = useState()
+    const[category,setCategory] = useState()
+    const[label,setLabel] = useState()
+    const[price,setPrice] = useState()
+    const[description,setDescription] = useState()
     const navigate = useNavigate()
    
     const Submit = (e)=> {
         e.preventDefault();
-        axios.post("http://localhost:3001/CreateItem",{Id,Name,Image,Category,Label,Price,Description})
+        axios.post("http://localhost:5000/CreateItem",{id,name,image,category,label,price,description})
         .then(result=> {  console.log(result)
         navigate('/')
       })

@@ -4,19 +4,19 @@ import axios from 'axios';
 import { useParams,useNavigate } from "react-router-dom";
 
 function UpdateItem() {
-    const{id} = useParams()
+    const{Id} = useParams()
 
-    const[Id,setId] = useState()
-    const[Name,setName] = useState()
-    const[Image,setImage] = useState()
-    const[Category,setCategory] = useState()
-    const[Label,setLabel] = useState()
-    const[Price,setPrice] = useState()
-    const[Description,setDescription] = useState()
+    const[id,setId] = useState()
+    const[name,setName] = useState()
+    const[image,setImage] = useState()
+    const[category,setCategory] = useState()
+    const[label,setLabel] = useState()
+    const[price,setPrice] = useState()
+    const[description,setDescription] = useState()
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get('http://localhost:3001/getItem'+Id)
+        axios.get('http://localhost:5000/getItem/'+Id)
         .then(result => {console.log(result)
         setId(result.data.Id)
         setName(result.data.Name)
@@ -32,7 +32,7 @@ function UpdateItem() {
 
     const Update = (e)=> {
         e.preventDefault();
-        axios.put("http://localhost:3001/UpdateItem"+Id,{Id,Name,Image,Category,Label,Price,Description})
+        axios.put("http://localhost:5000/UpdateItem"+Id,{id,name,image,category,label,price,description})
         .then(result=> {console.log(result)
         navigate('/')
     })
@@ -48,37 +48,37 @@ function UpdateItem() {
                     <div className='mb-2'>
                         <label htmlFor="">Id</label>
                         <input type="text" placeholder='Enter Id' className='form-control'
-                        value={Id}  onChange={(e)=> setId(e.target.value)}/>
+                        value={id}  onChange={(e)=> setId(e.target.value)}/>
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="">Name</label>
                         <input type="text" placeholder='Enter Items Name' className='form-control'
-                       value={Name}  onChange={(e)=> setName(e.target.value)}/>
+                       value={name}  onChange={(e)=> setName(e.target.value)}/>
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="">Image</label>
                         <input type="text" placeholder='Enter Image' className='form-control'
-                        value={Image}  onChange={(e)=> setImage(e.target.value)}/>
+                        value={image}  onChange={(e)=> setImage(e.target.value)}/>
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="">Category</label>
                         <input type="text" placeholder='Enter Category' className='form-control'
-                        value={Category}  onChange={(e)=> setCategory(e.target.value)}/>
+                        value={category}  onChange={(e)=> setCategory(e.target.value)}/>
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="">Label</label>
                         <input type="text" placeholder='Enter Label' className='form-control'
-                        value={Label}  onChange={(e)=> setLabel(e.target.value)}/>
+                        value={label}  onChange={(e)=> setLabel(e.target.value)}/>
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="">Price</label>
                         <input type="text" placeholder='Enter Price' className='form-control'
-                        value={Price}  onChange={(e)=> setPrice(e.target.value)}/>
+                        value={price}  onChange={(e)=> setPrice(e.target.value)}/>
                     </div>
                     <div className='mb-2'>
                         <label htmlFor="">Description</label>
                         <input type="text" placeholder='Enter Items Description' className='form-control'
-                        value={Description}  onChange={(e)=> setDescription(e.target.value)}/>
+                        value={description}  onChange={(e)=> setDescription(e.target.value)}/>
                     </div>
                     <button className = 'btn btn-sucess'>Submit</button>
                 </form>

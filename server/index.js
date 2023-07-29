@@ -35,23 +35,23 @@ app.get("/prices", (req, res) => {
 })
 
 //Add items
-app.post("/create", (req, res) => {
+app.post("/CreateItem", (req, res) => {
     UserModel.create(req.body)
     .then(users=> res.json(users))
     .catch(err => res.json(err))
     console.log(err)
 })
 
-app.get("/getItem/:id", (req, res) => {
-    const id = req.param.id;
-    UserModel.findById({id})
+app.get("/getItem/:Id", (req, res) => {
+    const Id = req.params.Id;
+    UserModel.findById({_id:Id})
     .then(users=> res.json(users))
     .catch(err => res.json(err))
     })
 
-    app.put("/UpdateItem/:id", (req, res) => {
-        const id = req.params.id;
-        UserModel.findByIdAndUpdate({_id:id},
+    app.put("/UpdateItem/:Id", (req, res) => {
+        const Id = req.params.Id;
+        UserModel.findByIdAndUpdate({_id:Id},
             {name: req.body.name,
             image: req.body.image,
             category: req.body.category,
