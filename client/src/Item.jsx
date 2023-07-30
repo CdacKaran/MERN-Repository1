@@ -4,10 +4,9 @@ import axios from 'axios';
 
 function Item() {
     const[item,setItem]= useState([{
-         Id:32, name: "Jalebi",image:"xyz",category:"mains",label:"Sweet",price:10.99,
-         description: "A indian sweet dish"}])  
-
-
+         id:32, name: "Jalebi",image:"xyz",category:"mains",label:"Sweet",price:10.99,
+         description: "A indian sweet dish"}]) 
+         
     useEffect(() => {
         axios.get('http://localhost:5000')
         .then(result => setItem(result.data))
@@ -17,7 +16,8 @@ function Item() {
     return (
         <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
             <div className= 'w-50 bg-white rounded p-3'>
-                <Link to="/create" className= 'btn btn-sucess'>Add +</Link>
+                 <h1>MENU</h1>
+                <Link to="/create" className= 'btn btn-sucess'>Add</Link>
                 <table className='table'>
                     <thead>
                         <tr>
