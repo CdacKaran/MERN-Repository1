@@ -29,15 +29,15 @@ const UserSchema = new mongoose.Schema({
 // Get all the prices.
 app.get("/prices", (req, res) => {
     UserModel.find({})
-    .then(users=> res.json(users))
+    .then(prices=> res.json(prices))
     .catch(err => res.json(err))
     console.log(err)
 })
 
 //Add items
-app.post("/CreateItem", (req, res) => {
+app.post("/create", (req, res) => {
     UserModel.create(req.body)
-    .then(users=> res.json(users))
+    .then(prices=> res.json(prices))
     .catch(err => res.json(err))
     console.log(err)
 })
@@ -96,5 +96,4 @@ app.get("/getItem/:Id", (req, res) => {
 
 app.listen(5000, () => {
     console.log("Server running on port 5000");
-    console.log("Connected to MongoDB");
-})
+    })

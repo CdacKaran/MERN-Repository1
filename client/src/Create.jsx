@@ -4,7 +4,7 @@ import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 
 
-function CreateItem() {
+function Create() {
     const[id,setId] = useState()
     const[name,setName] = useState()
     const[image,setImage] = useState()
@@ -16,7 +16,7 @@ function CreateItem() {
    
     const Submit = (e)=> {
         e.preventDefault();
-        axios.post("http://localhost:5000/CreateItem",{id,name,image,category,label,price,description})
+        axios.post("http://localhost:5000/create",{id,name,image,category,label,price,description})
         .then(result=> {  console.log(result)
         navigate('/')
       })
@@ -70,4 +70,4 @@ function CreateItem() {
     )
 }
 
-export default CreateItem;
+export default Create;

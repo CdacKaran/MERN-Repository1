@@ -37,6 +37,7 @@ function Item() {
                                     <td>{prices.id}</td>
                                     <td>{prices.name}</td>
                                     <td>{prices.image}</td>
+                                    <td>{prices.category}</td>
                                     <td>{prices.label}</td>
                                     <td>{prices.price}</td>
                                     <td>{prices.description}</td>

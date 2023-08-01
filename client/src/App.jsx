@@ -4,7 +4,7 @@ import axios from 'axios'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Item from './Item'
-import CreateItem from './CreateItem'
+import Create from './Create'
 import UpdateItem from './UpdateItem'
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path= '/' element={<Item/>}></Route>
-        <Route path= '/create' element={<CreateItem/>}></Route>
+        <Route path= '/create' element={<Create/>}></Route>
         <Route path= '/update/:id' element={<UpdateItem/>}></Route>
         </Routes>  
     </BrowserRouter>
