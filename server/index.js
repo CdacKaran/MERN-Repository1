@@ -11,8 +11,9 @@ app.use(cors());
 
 
 // Connect to the database.
-mongoose.connect("mongodb://127.0.0.1:27017/MERN");
-
+mongoose.connect("mongodb://127.0.0.1:27017/MERN",{useNewUrlParser: true, useUnifiedTopology: true})
+.then( ()=> console.log("connection successfull.."))
+.catch((err) => console.log(err));
 // Create the schema for the prices table.
 const UserSchema = new mongoose.Schema({
     id: Number,
